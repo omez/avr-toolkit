@@ -9,13 +9,13 @@
 #define PLATFORM_ATMEGA8_IO_H_
 
 #include <avr/io.h>
-#include "../lib/io.h"
+#include "../../lib/io.h"
 
 // Ports definition
-MAKE_PORT(PORTA, DDRA, PINA, PortA, "A")
-MAKE_PORT(PORTB, DDRB, PINB, PortB, "B")
-MAKE_PORT(PORTC, DDRC, PINC, PortC, "C")
-MAKE_PORT(PORTD, DDRD, PIND, PortD, "D")
+MAKE_PORT(PORTA, DDRA, PINA, PortA, 'A')
+MAKE_PORT(PORTB, DDRB, PINB, PortB, 'B')
+MAKE_PORT(PORTC, DDRC, PINC, PortC, 'C')
+MAKE_PORT(PORTD, DDRD, PIND, PortD, 'D')
 
 // pin configuration
 typedef PortPin<PortA, 0> PortA0;
