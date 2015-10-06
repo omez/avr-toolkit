@@ -1,17 +1,15 @@
 /*
  * circular_buffer.h
  *
- *  Created on: 4 окт. 2015 г.
  *      Author: OmeZ
  */
 
-#ifndef UTILS_CIRCULAR_BUFFER_H_
-#define UTILS_CIRCULAR_BUFFER_H_
+#ifndef AVR_TOOLKIT_LIB_COMMON_CIRCULAR_BUFFER_H_
+#define AVR_TOOLKIT_LIB_COMMON_CIRCULAR_BUFFER_H_
 
-template<typename T, unsigned char size>
+template<typename T, typename pointerT, pointerT const size>
 class CircularBuffer {
 private:
-	typedef unsigned char pointerT;
 	pointerT count;
 	pointerT pos;
 	T buffer[size];
@@ -110,4 +108,4 @@ public:
 
 };
 
-#endif /* UTILS_CIRCULAR_BUFFER_H_ */
+#endif /* AVR_TOOLKIT_COMMON_CIRCULAR_BUFFER_H_ */

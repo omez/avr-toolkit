@@ -5,13 +5,13 @@
  *      Author: OmeZ
  */
 
-#ifndef LIB_IO_PORT_H_
-#define LIB_IO_PORT_H_
+#ifndef AVR_TOOLKIT_LIB_IO_PORT_H_
+#define AVR_TOOLKIT_LIB_IO_PORT_H_
 
 /**
  * Makes port definition
  */
-#define MAKE_PORT(portName, ddrName, pinName, className, ID) \
+#define AVR_TOOLKIT_MAKE_PORT(portName, ddrName, pinName, className, ID) \
 class className{\
 public:\
 	typedef unsigned char DataT;\

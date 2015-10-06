@@ -5,8 +5,10 @@
  *      Author: OmeZ
  */
 
-#ifndef LIB_IO_PIN_H_
-#define LIB_IO_PIN_H_
+#ifndef AVR_TOOLKIT_LIB_IO_PIN_H_
+#define AVR_TOOLKIT_LIB_IO_PIN_H_
+
+#define AVR_TOOLKIT_MAKE_PIN(port, index) typedef PortPin<port, 0> port##index;
 
 /**
  * PortPin template class
@@ -46,10 +48,30 @@ public:
 	static void setDirWrite() {
 		PORT::dirSet(1 << PIN);
 	}
-	static unsigned char isSet() {
+	static bool isset() {
 		return PORT::pinRead() & (unsigned char) (1 << PIN);
 	}
 };
 
+/**
+ * Inversed pin implementation
+ *
+ */
+template<class PORT, unsigned char PIN>
+class PortPinInversed : PortPin<PORT, PIN> {
+
+public:
+	static void clear() {
+		PortPin<PORT, PIN>::set();
+	}
+
+	static void set() {
+		PortPin<PORT, PIN>::clear();
+	}
+
+	static bool isset() {
+		return !PortPin<PORT, PIN>::isset();
+	}
+};
 
 #endif /* LIB_IO_PIN_H_ */
